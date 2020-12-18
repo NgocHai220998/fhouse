@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap/scss/bootstrap";
- @import "./static_pages/index.scss";
- 
+@import "bootstrap/scss/bootstrap";
+* {
+  box-sizing: border-box;  
+}
+@import "./static_pages/index.scss";
+@import "./login/login.scss"

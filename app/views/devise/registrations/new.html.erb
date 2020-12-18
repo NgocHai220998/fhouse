@@ -1,0 +1,40 @@
+<section class="login-block">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 login-sec">
+        <h2 class="text-center title-login">SIGNUP | FHouse</h2>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <%= form_for(resource,
+                   as: resource_name,
+                   url: registration_path(resource_name),
+                   html: { class: "login-form" }) do |f| %>
+          <div class="form-group">
+            <%= f.label :email, { class: "text-uppercase" } %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :username, { class: "text-uppercase" } %><br />
+            <%= f.text_field :username, autocomplete: "autocomplete", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password, { class: "text-uppercase" } %>
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %>
+            <%= f.password_field :password, autocomplete: "autocomplete", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password_confirmation, { class: "text-uppercase" } %>
+            <%= f.password_field :password_confirmation, autocomplete: "autocomplete", class: "form-control" %>
+          </div>
+          <div class="actions">
+            <%= f.submit "Sign up", { class: "btn btn-login float-right" } %>
+          </div>
+          <%= render "devise/shared/links" %>
+        <% end %>
+        <div class="copy-text">Created with <i class="fa fa-heart"></i> by FHouse</div>
+      </div>
+      <%= render "shared/slide_show_login"%>
+    </div>
+  </div>
+</section>
