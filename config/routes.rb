@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     post "signin" => "devise/sessions#create"
     delete "signout" => "devise/sessions#destroy"
   end
-  root 'static_pages#index'
+  root "static_pages#index"
+  get "/posts/detail", to: "static_pages#detail_post"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

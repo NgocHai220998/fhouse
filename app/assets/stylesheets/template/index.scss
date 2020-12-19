@@ -44,7 +44,8 @@
   }
 
 .header-page,
-.home-page {
+.home-page,
+.detail_post {
 	:root {
 		--blue: #007bff;
 		--indigo: #6610f2;
@@ -16410,6 +16411,10 @@
 		font-size: 18px;
 	}
 
+	li {
+		color: var(--font-color);
+	}
+
 	ul.details-list li strong {
 		color: var(--heading-color);
 	}
@@ -17617,4 +17622,8 @@
 			line-height: 28px;
 		}
 	}
+}
+
+.box-drop-account {	
+	background-color: var(--bg-color)!important;
 }

@@ -3,13 +3,13 @@
     <div class="container">
       <nav class="navbar navbar-expand-lg stroke px-0">
         <h1>
-          <a class="navbar-brand" href="index.html">
-            <span class="fa fa-home"></span> Estate sale
-          </a>
+          <%= link_to root_path, :class => 'navbar-brand' do %>
+            <span class="fa fa-home"></span> FHouse
+          <% end %>
         </h1>
         <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
-              data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
-              aria-label="Toggle navigation">
+          data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+          aria-label="Toggle navigation">
           <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
           <span class="navbar-toggler-icon fa icon-close fa-times"></span>
         </button>
@@ -24,9 +24,6 @@
                 <a class="dropdown-item" href="#">Profile</a>
               </div>
             </div>
-            <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-            </li>
             <li class="nav-item @@listing__active">
               <a class="nav-link" href="listing.html">Listing</a>
             </li>
@@ -36,17 +33,7 @@
                 Property <span class="fa fa-angle-down"></span>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item @@ps__active" href="property-single.html">Single property</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown @@pages__active">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Pages <span class="fa fa-angle-down"></span>
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item @@about__active" href="about.html">About us</a>
-                <a class="dropdown-item @@contact__active" href="contact.html">Contact us</a>
+                <%= link_to "Single property", posts_detail_path, :class => "dropdown-item @@ps__active" %>
               </div>
             </li>
           </ul>
@@ -81,9 +68,10 @@
           <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= current_user.username %>
           </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownAccount">
+          <div class="dropdown-menu box-drop-account" aria-labelledby="dropdownAccount">
             <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            <a class="dropdown-item" href="#">Profile</a>
+            <%= link_to "Profile", root_path, class: "dropdown-item" %>
+            <%= link_to "Active Host", root_path, class: "dropdown-item" %>
           </div>
         </div>
       </nav>
