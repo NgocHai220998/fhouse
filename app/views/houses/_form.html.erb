@@ -1,0 +1,169 @@
+<div class="add-house-page">
+  <section class="w3l-about-breadcrumb">
+    <div class="breadcrumb-bg breadcrumb-bg-about pt-5">
+      <div class="container pt-lg-5 py-3"></div>
+    </div>
+  </section>
+  <section class="w3l-breadcrumb">
+    <div class="container">
+      <ul class="breadcrumbs-custom-path">
+        <li>
+          <%= link_to "Trang chủ", root_path %>
+        </li>
+        <li class="active">
+          <span class="fa fa-angle-right mx-2" aria-hidden="true"></span>
+          Đăng phòng cho thuê
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="w3l-blog post-content py-5">
+    <div class="container py-lg-4 py-md-3 py-2">
+      <div class="row">
+        <div class="col-lg-8 w3l-news">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-6 border-right">
+                        <h4>TIN PHÒNG CHO THUÊ</h4>
+                      </div>
+                      <div class="col-md-6">
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <%= form_with(model: house) do |form| %>
+                          <div class="form-group row">
+                            <div class="col-12">
+                              <% if house.errors.any? %>
+                                <div id="error_explanation">
+                                  <h2><%= pluralize(house.errors.count, "error") %> prohibited this house from being saved:</h2>
+                                  <ul>
+                                    <% house.errors.each do |error| %>
+                                      <li><%= error.full_message %></li>
+                                    <% end %>
+                                  </ul>
+                                </div>
+                              <% end %>
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <div class="field col-6">
+                              <label class="col-form-label">Tiêu đề</label>
+                              <%= form.text_field :title, placeholder: "Nhập tiêu đề của bạn", class: "form-control here", required: "required", style: "width: 100%" %>
+                            </div>
+                            <div class="field col-6">
+                              <label class="col-form-label">Địa chỉ</label>
+                              <%= form.text_field :address, placeholder: "Nhập địa chỉ chi tiết", class: "form-control here", required: "required", style: "width: 100%" %>
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <div class="field col-6">
+                              <label class="col-form-label">Giá thuê</label>
+                              <%= form.text_field :pice, placeholder: "Nhập giá thuê", class: "form-control here", required: "required", style: "width: 100%" %>
+                            </div>
+                            <div class="field col-6">
+                              <label class="col-form-label">Loại phòng</label>
+                              <%= form.text_field :kind, placeholder: "Nhập loại phòng", class: "form-control here", required: "required", style: "width: 100%" %>
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <div class="field col-12">
+                              <label class="col-form-label">Video mô tả chi tiết</label>
+                              <%= form.text_field :video_url, placeholder: "Nhập đường dẫn video", class: "form-control here", style: "width: 100%" %>
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <div class="field col-3">
+                              <%= form.check_box :is_wc %>
+                              <%= form.label "WC riêng" %>
+                            </div>
+                            <div class="field col-3">
+                              <%= form.check_box :is_wf %>
+                              <%= form.label "Wifi" %>
+                            </div>
+                            <div class="field col-3">
+                              <%= form.check_box :is_cook %>
+                              <%= form.label "Nấu ăn" %>
+                            </div>
+                            <div class="field col-3">
+                              <%= form.check_box :is_time_free %>
+                              <%= form.label "Giờ tự do" %>
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <div class="field col-3">
+                              <%= form.check_box :is_elevator %>
+                              <%= form.label "Thang máy" %>
+                            </div>
+                            <div class="field col-3">
+                              <%= form.check_box :is_pet %>
+                              <%= form.label "Nuôi pet" %>
+                            </div>
+                            <div class="field col-3">
+                              <%= form.check_box :is_aircon %>
+                              <%= form.label "Điều hòa" %>
+                            </div>
+                            <div class="field">
+                              <%= form.label "Thành phố" %>
+                              <%= form.select :city, ["Berlin", "Chicago", "Madrid"] %>
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <div class="field col-4">
+                              <%= form.label "Chỗ để xe" %>
+                              <%= form.number_field :gara_size %>
+                            </div>
+                            <div class="field col-4">
+                              <%= form.label "Phòng tắm" %>
+                              <%= form.number_field :bathrooms %>
+                            </div>
+                            <div class="field col-4">
+                              <%= form.label "Phòng ngủ" %>
+                              <%= form.number_field :bedrooms %>
+                            </div>
+                            <div class="field col-4">
+                              <%= form.label "Diện tích" %>
+                              <%= form.number_field :acreage %>
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label class="col-12 col-form-label">Mô tả chi tiết</label>
+                            <div class="col-12">
+                              <%= form.text_area :description, size: "90x5" %>
+                            </div>
+                          </div>
+                          <div class="actions">
+                            <%= form.submit :class => "btn btn-success" %>
+                          </div>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-side col-lg-4 col-md-12 col-sm-12 mt-lg-0 mt-5">
+          <aside class="sidebar">
+            <div class="sidebar-widget popular-posts">
+              <div class="sidebar-title">
+                <h4>Popular Post</h4>
+              </div>
+              <%= render "shared/detail_post_page/popular_house_add" %>
+              <%= render "shared/detail_post_page/popular_house_add" %>
+              <%= render "shared/detail_post_page/popular_house_add" %>
+              <%= render "shared/detail_post_page/popular_house_add" %>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+  <%= render "module_script/home_page" %>
+</div>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :houses
   devise_for :users
   as :user do
     get "signin" => "devise/sessions#new"
