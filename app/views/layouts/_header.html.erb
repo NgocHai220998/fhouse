@@ -70,7 +70,7 @@
           </button>
           <div class="dropdown-menu box-drop-account" aria-labelledby="dropdownAccount">
             <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            <%= link_to "Profile", root_path, class: "dropdown-item" %>
+            <%= link_to "Profile", users_profile_path, class: "dropdown-item" %>
             <%= link_to "Active Host", root_path, class: "dropdown-item" %>
           </div>
         </div>

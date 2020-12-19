@@ -4,4 +4,6 @@ class StaticPagesController < ApplicationController
   def index; end
 
   def detail_post; end
+
+  def profile; end
 end

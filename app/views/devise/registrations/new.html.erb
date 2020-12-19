@@ -27,6 +27,15 @@
             <%= f.label :password_confirmation, { class: "text-uppercase" } %>
             <%= f.password_field :password_confirmation, autocomplete: "autocomplete", class: "form-control" %>
           </div>
+          <div class="form-group">
+            <%= f.label :image %><br>
+            <%= f.file_field :image %>
+            <% if f.object.image? %>
+              <%= image_tag f.object.image.thumb.url %>
+              <%= f.label :remove_image %>
+              <%= f.check_box :remove_image %>
+            <% end %>
+          </div>
           <div class="actions">
             <%= f.submit "Sign up", { class: "btn btn-login float-right" } %>
           </div>

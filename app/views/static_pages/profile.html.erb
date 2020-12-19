@@ -1,0 +1,110 @@
+<div class="profile-page">
+  <section class="w3l-about-breadcrumb">
+    <div class="breadcrumb-bg breadcrumb-bg-about pt-5">
+      <div class="container pt-lg-5 py-3"></div>
+    </div>
+  </section>
+  <div class="container emp-profile">
+    <form method="post">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="profile-img">
+            <%= image_tag current_user.image.url, width: "250px", height: "250px", style: "max-height: 250px" %>
+            <div class="file btn btn-lg btn-primary">
+              Change Photo
+              <input type="file" name="file"/>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="profile-head">
+            <h5>
+              Nguyễn Ngọc Hải
+            </h5>
+            <h6>
+              Nhà tuyển dụng
+            </h6>
+            <% if current_user.is_host %>
+              <h6>Người cho thuê nhà</h6>
+            <% else %>
+              <h6>Người tìm nhà</h6>
+            <% end %>
+            <p class="proile-rating"><span></span></p>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-8">
+          <div class="tab-content profile-tab" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <div class="row">
+                <div class="col-md-6">
+                  <label>User code</label>
+                </div>
+                <div class="col-md-6">
+                  <p>Kshiti123</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Name</label>
+                </div>
+                <div class="col-md-6">
+                  <p><%= current_user.username %></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Email</label>
+                </div>
+                <div class="col-md-6">
+                  <p><%= current_user.email %></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Phone</label>
+                </div>
+                <div class="col-md-6">
+                  <p>123 456 7890</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Address</label>
+                </div>
+                <div class="col-md-6">
+                  <p>Hà Nội, Việt Nam</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Profession</label>
+                </div>
+                <div class="col-md-6">
+                  <% if current_user.is_host %>
+                    <p>Người cho thuê nhà</p>
+                  <% else %>
+                    <p>Người tìm nhà</p>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <strong>Image:</strong>
+  <%= render "module_script/home_page" %>
+</div>
