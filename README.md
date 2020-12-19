@@ -5,3 +5,5 @@
 
 # config device authenticate
   ## link Tài liệu: https://viblo.asia/p/cach-su-dung-gem-devise-bWrZng8Ylxw
+
+# home pages

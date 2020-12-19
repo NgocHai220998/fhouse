@@ -1,0 +1,5 @@
+import "./theme-change"
+import "./jquery.waypoints.min"
+import "./jquery.countup"
+import "./owl.carousel"
+import "./jquery.magnific-popup.min"
