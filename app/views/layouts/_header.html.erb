@@ -15,29 +15,33 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav ml-lg-5 mr-auto">
-            <div class="dropdown ml-3 btn-account-mobile">
-              <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= current_user.username %>
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownAccount">
-                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-                <a class="dropdown-item" href="#">Profile</a>
+            <% if user_signed_in? %>
+              <div class="dropdown ml-3 btn-account-mobile">
+                <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <%= current_user.username %>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownAccount">
+                  <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                  <%= link_to "Profile", users_profile_path, class: "dropdown-item" %>
+                  <% if !current_user.is_host %>
+                    <%= link_to "Active Host", active_host_path, method: :put, class: "dropdown-item" %>
+                  <% end %>
+                </div>
               </div>
-            </div>
+            <% else %>
+              <div class="btn-account-mobile">
+                <%= link_to signin_path do %>
+                  <div class="btn btn-primary">
+                    Đăng nhập
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
             <li class="nav-item @@listing__active">
               <a class="nav-link" href="listing.html">Listing</a>
             </li>
-            <li class="nav-item dropdown @@property__active">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Property <span class="fa fa-angle-down"></span>
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <%= link_to "Single property", posts_detail_path, :class => "dropdown-item @@ps__active" %>
-              </div>
-            </li>
           </ul>
-          <% if current_user.is_host %>
+          <% if current_user && current_user.is_host %>
             <div class="top-quote mt-lg-0">
               <%= link_to new_house_path, class: "btn btn-style btn-primary" do %>
                 <span class="fa fa-home"></span> THÊM
@@ -67,18 +71,28 @@
             </div>
           </nav>
         </div>
-        <div class="dropdown ml-3 btn-account">
-          <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= current_user.username %>
-          </button>
-          <div class="dropdown-menu box-drop-account" aria-labelledby="dropdownAccount">
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            <%= link_to "Profile", users_profile_path, class: "dropdown-item" %>
-            <% if !current_user.is_host %>
-              <%= link_to "Active Host", active_host_path, method: :put, class: "dropdown-item" %>
+        <% if user_signed_in? %>
+          <div class="dropdown ml-3 btn-account">
+            <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= current_user.username %>
+            </button>
+            <div class="dropdown-menu box-drop-account" aria-labelledby="dropdownAccount">
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              <%= link_to "Profile", users_profile_path, class: "dropdown-item" %>
+              <% if !current_user.is_host %>
+                <%= link_to "Active Host", active_host_path, method: :put, class: "dropdown-item" %>
+              <% end %>
+            </div>
+          </div>
+        <% else %>
+          <div class="ml-4">
+            <%= link_to signin_path do %>
+              <div class="btn btn-primary">
+                Đăng nhập
+              </div>
             <% end %>
           </div>
-        </div>
+        <% end %>
       </nav>
     </div>
   </header>

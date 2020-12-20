@@ -7,7 +7,6 @@ Rails.application.routes.draw do
     delete "signout" => "devise/sessions#destroy"
   end
   root "static_pages#index"
-  get "/posts/detail", to: "static_pages#detail_post"
   get "/users/profile", to: "static_pages#profile"
 
   put "active_host" => "users#active_host"

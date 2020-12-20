@@ -33,4 +33,8 @@ module ApplicationHelper
   def house_by_city(city)
     House.where city: city
   end
+
+  def house_by_popular
+    House.order(view: :desc)
+  end
 end
