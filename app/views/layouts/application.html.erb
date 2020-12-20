@@ -10,7 +10,9 @@
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
   </head>
   <body>
-    <%= render "layouts/header" %>
+    <div id="root_header">
+      <%= render "layouts/header" %>
+    </div>
     <%= yield %>
   </body>
   <%= javascript_pack_tag 'template', 'data-turbolinks-track': 'reload' %>

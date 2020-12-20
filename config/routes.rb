@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   put "active_host" => "users#active_host"
 
   post "/comment" => "comments#create"
+  post "/care" => "cares#create"
+  delete "/care/:id" => "cares#destroy"
 
   resources :house_photos
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

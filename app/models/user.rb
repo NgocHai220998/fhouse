@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :house
   has_many :comment
+  has_many :care
 
   validates_processing_of :image
   validate :image_size_validation
