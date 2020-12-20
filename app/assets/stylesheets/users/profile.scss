@@ -214,3 +214,90 @@
 		border-bottom: 1px solid var(--font-color);
 	}
 }
+
+.tien-ich {
+	&-yes {
+		position: relative;
+
+		&::before {
+			position: absolute;
+			content: "Có";
+			font-size: 11px;
+			color: #fff;
+			font-weight: bold;
+			padding: 0 5px;
+			text-align: center;
+			border-radius: 5px;
+			background-color: #28a745;
+			right: -30px;
+			top: 3px;
+		}
+	}
+
+	&-no {
+		position: relative;
+
+		&::before {
+			position: absolute;
+			content: "Không";
+			font-size: 11px;
+			color: #fff;
+			font-weight: bold;
+			padding: 0 5px;
+			text-align: center;
+			border-radius: 5px;
+			background-color: #dc3545;
+			right: -50px;
+			top: 3px;
+		}
+	}
+}
+
+.slide-show {
+	max-height: 500px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+.title-image-slide {
+	color: var(--font-color);
+}
+
+.star-checked {
+	color: orange;
+}
+
+.box-comment-house {
+	
+	.list-comment-review-house {
+		color: var(--font-color);
+
+		&-item {
+			margin-top: 10px;
+			background-color: var(--bg-color);
+			padding: 20px;
+			border-radius: 10px;
+			border-left: 4px solid var(--primary-color);
+		}
+
+		.list-comment-top {
+		}
+
+		.list-comment-top-name {
+			padding: 0px;
+			text-align: left;
+			font-size: 18px;
+			color: var(--primary-color);
+			font-weight: bold;
+		}
+
+		.list-comment-top-star {
+			padding: 0px;
+			text-align: left;
+		}
+
+		.list-comment-top-time {
+			padding: 0px;
+			text-align: right;
+		}
+	}
+}

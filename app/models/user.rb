@@ -6,8 +6,15 @@ class User < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
+  has_many :house
+  has_many :comment
+
   validates_processing_of :image
   validate :image_size_validation
+
+  def active_host
+    update is_host: true
+  end
 
   private
 

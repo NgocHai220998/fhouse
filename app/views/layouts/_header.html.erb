@@ -37,10 +37,13 @@
               </div>
             </li>
           </ul>
-          <div class="top-quote mt-lg-0">
-            <a href="#buytheme" class="btn btn-style btn-primary"><span class="fa fa-home"></span> Add
-              listiing</a>
-          </div>
+          <% if current_user.is_host %>
+            <div class="top-quote mt-lg-0">
+              <%= link_to new_house_path, class: "btn btn-style btn-primary" do %>
+                <span class="fa fa-home"></span> THÊM
+              <% end %>
+            </div>
+          <% end %>
           <div class="search mx-3">
             <input class="search_box" type="checkbox" id="search_box">
             <label class="fa fa-search" for="search_box"></label>
@@ -71,7 +74,9 @@
           <div class="dropdown-menu box-drop-account" aria-labelledby="dropdownAccount">
             <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             <%= link_to "Profile", users_profile_path, class: "dropdown-item" %>
-            <%= link_to "Active Host", root_path, class: "dropdown-item" %>
+            <% if !current_user.is_host %>
+              <%= link_to "Active Host", active_host_path, method: :put, class: "dropdown-item" %>
+            <% end %>
           </div>
         </div>
       </nav>

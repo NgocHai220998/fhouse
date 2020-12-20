@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_19_160023) do
+ActiveRecord::Schema.define(version: 2020_12_20_124001) do
+
+  create_table "comments", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "house_id"
+    t.integer "star"
+    t.string "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "house_photos", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "house_id"
+    t.string "photo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "houses", charset: "utf8mb4", force: :cascade do |t|
     t.string "title"

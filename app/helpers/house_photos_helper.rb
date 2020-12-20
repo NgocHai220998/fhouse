@@ -1,0 +1,2 @@
+module HousePhotosHelper
+end
