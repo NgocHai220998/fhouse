@@ -1,7 +1,7 @@
 <section class="login-block">
   <div class="container">
     <div class="row">
-      <div class="col-md-4 login-sec">
+      <div class="col-md-6 login-sec">
         <h2 class="text-center title-login">LOGIN | FHouse</h2>
         <div class="container-fluid">
           <p class="notice"><%= notice %></p>
@@ -13,11 +13,11 @@
                    html: { class: "login-form" }) do |f| %>
           <div class="form-group">
             <%= f.label :email, { class: "text-uppercase" } %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+            <%= f.email_field :email, autofocus: true, placeholder: "fhouse@gmail.com", autocomplete: "email", class: "form-control", required: "required" %>
           </div>
           <div class="form-group">
             <%= f.label :password, { class: "text-uppercase" } %><br />
-            <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+            <%= f.password_field :password, placeholder: "************", autocomplete: "current-password", class: "form-control", required: "required" %>
           </div>
           <% if devise_mapping.rememberable? %>
             <div class="">

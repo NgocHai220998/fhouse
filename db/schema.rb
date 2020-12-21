@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2020_12_20_174640) do
     t.integer "house_id"
     t.integer "user_id"
     t.boolean "is_contact"
+    t.integer "host_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -76,7 +77,7 @@ ActiveRecord::Schema.define(version: 2020_12_20_174640) do
     t.string "phone"
     t.string "address"
     t.string "user_code"
-    t.boolean "is_host"
+    t.string "role", default: "user"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

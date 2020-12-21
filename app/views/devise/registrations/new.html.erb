@@ -1,40 +1,54 @@
 <section class="login-block">
   <div class="container">
     <div class="row">
-      <div class="col-md-4 login-sec">
+      <div class="col-md-6 login-sec">
         <h2 class="text-center title-login">SIGNUP | FHouse</h2>
         <%= render "devise/shared/error_messages", resource: resource %>
         <%= form_for(resource,
                    as: resource_name,
                    url: registration_path(resource_name),
                    html: { class: "login-form" }) do |f| %>
-          <div class="form-group">
-            <%= f.label :email, { class: "text-uppercase" } %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+          <div style="display: flex;" class="form-group">
+            <div style="padding-left: 0px" class="col-4">
+              <%= f.label "Tên đầy đủ", { class: "text-uppercase" } %><br />
+              <%= f.text_field :username, autofocus: true, autocomplete: "autocomplete", placeholder: "Nguyen Van A", class: "form-control", required: "required" %>
+            </div>
+            <div style="padding-left: 0px" class="col-4">
+              <%= f.label "Địa chỉ của bạn", { class: "text-uppercase" } %><br />
+              <%= f.text_field :address, autocomplete: "autocomplete", placeholder: "Nhà số 5, ngách 16, ngõ 75", class: "form-control", required: "required" %>
+            </div>
+            <div style="padding-left: 0px; padding-right: 0px;" class="col-4">
+              <%= f.label "Số điện thoại", { class: "text-uppercase" } %><br />
+              <%= f.text_field :phone, placeholder: "03833254xx", autocomplete: "autocomplete", class: "form-control", required: "required" %>
+            </div>
           </div>
-          <div class="form-group">
-            <%= f.label :username, { class: "text-uppercase" } %><br />
-            <%= f.text_field :username, autocomplete: "autocomplete", class: "form-control" %>
+          <div style="display: flex;" class="form-group">
+            <div style="padding-left: 0px; padding-right: 0px" class="col-6">
+              <%= f.label :email, { class: "text-uppercase" } %><br />
+              <%= f.email_field :email, placeholder: "fhouse@gmail.com", autocomplete: "email", class: "form-control", required: "required" %>
+            </div>
+            <div style="padding-right: 0px;" class="col-6">
+              <%= f.label "Ảnh đại diện" %><br>
+              <%= f.file_field :image, required: "required" %>
+              <% if f.object.image? %>
+                <%= image_tag f.object.image.thumb.url %>
+                <%= f.label :remove_image %>
+                <%= f.check_box :remove_image %>
+              <% end %>
+            </div>
           </div>
-          <div class="form-group">
-            <%= f.label :password, { class: "text-uppercase" } %>
-            <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end %>
-            <%= f.password_field :password, autocomplete: "autocomplete", class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :password_confirmation, { class: "text-uppercase" } %>
-            <%= f.password_field :password_confirmation, autocomplete: "autocomplete", class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :image %><br>
-            <%= f.file_field :image %>
-            <% if f.object.image? %>
-              <%= image_tag f.object.image.thumb.url %>
-              <%= f.label :remove_image %>
-              <%= f.check_box :remove_image %>
-            <% end %>
+          <div style="display: flex;" class="form-group">
+            <div style="padding-left: 0px; padding-right: 0px;" class="col-6">
+              <%= f.label :password, { class: "text-uppercase" } %>
+              <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %>
+              <%= f.password_field :password, placeholder: "**********", autocomplete: "autocomplete", class: "form-control", required: "required" %>
+            </div>
+            <div style="padding-right: 0px;" class="col-6">
+              <%= f.label :password_confirmation, { class: "text-uppercase" } %>
+              <%= f.password_field :password_confirmation, placeholder: "**********", autocomplete: "autocomplete", class: "form-control", required: "required" %>
+            </div>
           </div>
           <div class="actions">
             <%= f.submit "Sign up", { class: "btn btn-login float-right" } %>

@@ -30,6 +30,6 @@ class CaresController < ApplicationController
   private
 
   def house_params
-    params.require(:data).permit(:user_id, :house_id)
+    params.require(:data).permit(:user_id, :house_id, :host_id)
   end
 end

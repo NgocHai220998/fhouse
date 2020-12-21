@@ -23,7 +23,7 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownAccount">
                   <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
                   <%= link_to "Profile", users_profile_path, class: "dropdown-item" %>
-                  <% if !current_user.is_host %>
+                  <% if (current_user.role == "user") %>
                     <%= link_to "Active Host", active_host_path, method: :put, class: "dropdown-item" %>
                   <% end %>
                 </div>
@@ -38,10 +38,12 @@
               </div>
             <% end %>
             <li class="nav-item @@listing__active">
-              <a class="nav-link" href="listing.html">Listing</a>
+              <% if user_signed_in? && ["admin", "host"].include?(current_user.role) %>
+                <a class="nav-link" href="/admin">Quản lý</a>
+              <% end %>
             </li>
           </ul>
-          <% if current_user && current_user.is_host %>
+          <% if current_user && (current_user.role == "host") %>
             <div class="top-quote mt-lg-0">
               <%= link_to new_house_path, class: "btn btn-style btn-primary" do %>
                 <span class="fa fa-home"></span> THÊM
@@ -70,7 +72,7 @@
             <div class="dropdown-menu box-drop-account" aria-labelledby="dropdownAccount">
               <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
               <%= link_to "Profile", users_profile_path, class: "dropdown-item" %>
-              <% if !current_user.is_host %>
+              <% if (current_user.role == "user") %>
                 <%= link_to "Active Host", active_host_path, method: :put, class: "dropdown-item" %>
               <% end %>
             </div>

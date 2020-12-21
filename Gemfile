@@ -25,6 +25,8 @@ gem "devise", "~> 4.1" # Gem logic login, logout, reset, signup
 gem "carrierwave", "~> 0.10.0" # Cung cấp cách cách thức upload ảnh
 gem "mini_magick", "~> 4.3" # Dùng để thay đổi kích thước hình ảnh
 gem "roo" # Sử dụng để import dữ liệu vào DB
+gem "rails_admin" # thư viện để làm trang admin
+gem "cancancan" # Thư viện để phân quyền người dùng
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

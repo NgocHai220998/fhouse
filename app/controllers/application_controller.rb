@@ -1,4 +1,8 @@
 class ApplicationController < ActionController::Base
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to main_app.root_path, alert: "ADMIN"
+  end
+
   include ApplicationHelper
 
   # Prevent CSRF attacks by raising an exception.

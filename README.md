@@ -7,3 +7,6 @@
   ## link Tài liệu: https://viblo.asia/p/cach-su-dung-gem-devise-bWrZng8Ylxw
 
 # home pages
+
+# Config admin và phân quyền người dùng, sử dụng gem cancancan và rails admin
+  ## link Tài liệu: https://viblo.asia/p/xay-dung-trang-quan-li-website-su-dung-rails-admin-NPVMaDxQRQOk

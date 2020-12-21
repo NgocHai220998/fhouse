@@ -13,8 +13,12 @@ class User < ApplicationRecord
   validates_processing_of :image
   validate :image_size_validation
 
+  def role_enum
+    ["admin", "host", "user"]
+  end
+
   def active_host
-    update is_host: true
+    update role: "host"
   end
 
   private

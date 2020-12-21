@@ -22,6 +22,8 @@ class HousesController < ApplicationController
 
   # GET /houses/new
   def new
+    redirect_to root_path if current_user.role != "host"
+
     @house = current_user.house.build
     @house_photos = @house.house_photos.build
   end
