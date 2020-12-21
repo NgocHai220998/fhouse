@@ -20,7 +20,7 @@
             <p class="proile-rating"><span></span></p>
             <ul class="nav nav-tabs" id="myTab" role="tablist">
               <li class="nav-item">
-                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Thông tin</a>
               </li>
             </ul>
           </div>
@@ -37,15 +37,7 @@
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
               <div class="row">
                 <div class="col-md-6">
-                  <label>User code</label>
-                </div>
-                <div class="col-md-6">
-                  <p>Kshiti123</p>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <label>Name</label>
+                  <label>Họ và tên</label>
                 </div>
                 <div class="col-md-6">
                   <p><%= current_user.username %></p>
@@ -53,7 +45,7 @@
               </div>
               <div class="row">
                 <div class="col-md-6">
-                  <label>Email</label>
+                  <label>Địa chỉ email</label>
                 </div>
                 <div class="col-md-6">
                   <p><%= current_user.email %></p>
@@ -61,23 +53,23 @@
               </div>
               <div class="row">
                 <div class="col-md-6">
-                  <label>Phone</label>
+                  <label>Số điện thoại</label>
                 </div>
                 <div class="col-md-6">
-                  <p>123 456 7890</p>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <label>Address</label>
-                </div>
-                <div class="col-md-6">
-                  <p>Hà Nội, Việt Nam</p>
+                  <p><%= current_user.phone %></p>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-6">
-                  <label>Profession</label>
+                  <label>Địa chỉ</label>
+                </div>
+                <div class="col-md-6">
+                  <p><%= current_user.address %></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Vai trò</label>
                 </div>
                 <div class="col-md-6">
                   <% if (current_user.role = "host") %>
@@ -93,6 +85,5 @@
       </div>
     </form>
   </div>
-  <strong>Image:</strong>
   <%= render "module_script/home_page" %>
 </div>

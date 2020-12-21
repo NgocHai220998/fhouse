@@ -22,4 +22,9 @@ class Care < ApplicationRecord
     else raise "Unknown file type: #{file.original_filename}"
     end
   end
+
+  after_create do
+    user_host = House.find_by(id: self.house_id).user
+    Notification.create(user_id: 1, title: "Ai đó vừa quan tâm đến ngôi nhà của bạn", status: "none", user_recived_id: user_host.id)
+  end
 end

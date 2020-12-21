@@ -115,19 +115,19 @@
                           <div class="form-group row">
                             <div class="field col-4">
                               <%= form.label "Chỗ để xe" %>
-                              <%= form.number_field :gara_size, required: "required" %>
+                              <%= form.number_field :gara_size, required: "required", min: "0" %>
                             </div>
                             <div class="field col-4">
                               <%= form.label "Phòng tắm" %>
-                              <%= form.number_field :bathrooms, required: "required" %>
+                              <%= form.number_field :bathrooms, required: "required", min: "0" %>
                             </div>
                             <div class="field col-4">
                               <%= form.label "Phòng ngủ" %>
-                              <%= form.number_field :bedrooms, required: "required" %>
+                              <%= form.number_field :bedrooms, required: "required", min: "0" %>
                             </div>
                             <div class="field col-4">
                               <%= form.label "Diện tích" %>
-                              <%= form.number_field :acreage, required: "required" %>
+                              <%= form.number_field :acreage, required: "required", min: "5" %>
                             </div>
                           </div>
                           <div class="form-group row">
@@ -143,6 +143,7 @@
                                   <%= p.label "Ảnh mô tả" %><br>
                                   <%= p.file_field :photo, multiple: true, name: "house_photos[photo][]", class: "upload-image", required: "required" %>
                                 </div>
+                                <% break if house.id %>
                               <% end %>
                               <div id="preview"></div>
                             </div>

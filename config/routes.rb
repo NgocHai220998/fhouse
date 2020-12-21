@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  mount RailsAdmin::Engine => "/admin", as: "rails_admin"
   resources :houses
   devise_for :users
   as :user do
@@ -18,6 +18,11 @@ Rails.application.routes.draw do
 
   # city houses
   get "/houses/city/:id" => "houses#houses_city"
+
+  # get notification
+  get "/users/notifications/:id" => "users#pull_notification_by_recived_id"
+  # update status notification
+  get "/users/notifications/update/:id" => "users#update_notification_by_id"
 
   resources :house_photos
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

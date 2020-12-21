@@ -34,6 +34,10 @@ module ApplicationHelper
     House.where city: city
   end
 
+  def notification_by(user_recived_id)
+    Notification.where(user_recived_id: user_recived_id).reverse
+  end
+
   def house_by_popular
     House.order(view: :desc)
   end
