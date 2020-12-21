@@ -1,0 +1,27 @@
+<div class="home-page">
+  <section class="w3l-about-breadcrumb">
+    <div class="breadcrumb-bg breadcrumb-bg-about pt-5">
+      <div class="container pt-lg-5 py-3"></div>
+    </div>
+  </section>
+  <section class="locations-1" id="locations">
+    <div class="locations">
+      <div class="container py-lg-5 py-md-4 py-2">
+        <div class="heading text-center mx-auto">
+          <h3 class="title-big"><%= @list_house[0].city %></h3>
+          <h6 class="title-small">Hãy tìm cho mình một chỗ ở thật tốt</h6>
+        </div>
+        <div class="row">
+          <% @list_house.each_with_index do |house, idx| %>
+            <%= render "shared/home_page/post_preview", house: { cares: house.care.size, house: house, img: house.house_photos[0].photo_url, comments: house.comment.size } %>
+            <% if idx == 5 %>
+              <% break %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <%= render "shared/home_page/footer" %>
+    <%= render "module_script/home_page" %>
+  </section>
+</div>

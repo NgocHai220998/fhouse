@@ -1,11 +1,11 @@
 <div class="col-lg-3 col-md-4 col-6 pt-5">
-  <a href="#url">
+  <%= link_to "/houses/city/#{local_assigns[:name]}" do %>
     <div class="box16">
-      <img class="img-fluid" src="assets/p1.jpg" alt="">
+      <img style="width: 270px; height: 200px" class="img-fluid" src=<%= local_assigns[:image] %> alt=<%= local_assigns[:name] %>>
       <div class="box-content">
-        <h3 class="title mb-1">Newyork</h3>
-        <span class="post">4 listings</span>
+        <h3 class="title mb-1">TP. <%= local_assigns[:name] %></h3>
+        <span class="post"><%= House.where(city: local_assigns[:name]).size || 0 %> Nhà đang được cho thuê</span>
       </div>
     </div>
-  </a>
+  <% end %>
 </div>

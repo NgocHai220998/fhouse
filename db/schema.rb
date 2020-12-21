@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2020_12_20_174640) do
   create_table "cares", charset: "utf8mb4", force: :cascade do |t|
     t.integer "house_id"
     t.integer "user_id"
+    t.boolean "is_contact"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

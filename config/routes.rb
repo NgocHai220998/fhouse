@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   post "/care" => "cares#create"
   delete "/care/:id" => "cares#destroy"
 
+  # city houses
+  get "/houses/city/:id" => "houses#houses_city"
+
   resources :house_photos
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 

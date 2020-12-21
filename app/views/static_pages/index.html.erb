@@ -4,44 +4,35 @@
       <div class="container">
         <div class="middle-section text-center">
           <div class="section-width">
-            <p>It's great to be home!</p>
-            <h2>Find a property today</h2>
+            <p>Chúc bạn có một trải nghiệm tốt với FHouse</p>
+            <h2>Bạn đang ở đâu?</h2>
             <div class="most-searches">
-              <h4>Most Searches</h4>
-              <ul>
-                <li><a href="#link">Villa</a></li>
-                <li><a href="#link">Apartment</a></li>
-                <li><a href="#link">Private house</a></li>
-              </ul>
             </div>
-            <form action="#" class="w3l-cover-3-gd" method="GET">
-              <input type="search" name="text" placeholder="Enter keywords" required>
-              <span class="input-group-btn">
-                <select class="btn btn-default" name="ext" required>
-                  <option selected="">Office</option>
-                  <option>Villa</option>
-                  <option>Apartment</option>
-                  <option>Private house</option>
-                  <option>Building</option>
-                  <option>Shop</option>
-                  <option>Social housing</option>
-                  <option>Town house</option>
+            <div style="display: flex; justify-content: center;" class="w3l-cover-3-gd" method="GET">
+              <span style="display: inline-block; border-radius: 5px 0 0px 5px;" class="input-group-btn">
+                <select id="search-city-value" class="btn btn-default" name="ext" required>
+                  <option selected="">Hà Nội</option>
+                  <option>Hồ Chí Minh</option>
+                  <option>Đà Nẵng</option>
+                  <option>Đà Lạt</option>
+                  <option>Hòa Bình</option>
+                  <option>Hải Phòng</option>
+                  <option>Thái Nguyên</option>
+                  <option>Bảo Lộc</option>
                 </select>
               </span>
-              <span class="input-group-btn">
-                <select class="btn btn-default" name="ext" required>
-                  <option selected="">Select Country</option>
-                  <option>Australia</option>
-                  <option>London</option>
-                  <option>India</option>
-                  <option>Bangladesh</option>
-                  <option>Saudi Arabia</option>
-                  <option>America</option>
-                  <option>Srilanka</option>
-                </select>
-              </span>
-              <button type="submit" class="btn-primary">Search</button>
-            </form>
+              <a id="btn-submit-search-city" href="https://google.com">
+              </a>
+              <button onclick="submitSearch()" class="btn-primary">Tìm kiếm</button>
+            </div>
+            <script>
+              function submitSearch() {
+                const valueSearch = document.getElementById("search-city-value").value
+                const btnSumbit = document.getElementById("btn-submit-search-city")
+                btnSumbit.href = `/houses/city/${valueSearch}`
+                btnSumbit.click()
+              }
+            </script>
           </div>
           <section id="bottom" class="demo">
             <a href="#bottom"><span></span>Scroll</a>
@@ -108,14 +99,14 @@
             <h3 class="title-big">Khám phá các thành phố</h3>
           </div>
           <div class="row pt-1">
-            <%= render "shared/home_page/location_preview" %>
-            <%= render "shared/home_page/location_preview" %>
-            <%= render "shared/home_page/location_preview" %>
-            <%= render "shared/home_page/location_preview" %>
-            <%= render "shared/home_page/location_preview" %>
-            <%= render "shared/home_page/location_preview" %>
-            <%= render "shared/home_page/location_preview" %>
-            <%= render "shared/home_page/location_preview" %>
+            <%= render "shared/home_page/location_preview", { image: "assets/HoaBinh.jpg", name: "Hòa Bình" } %>
+            <%= render "shared/home_page/location_preview", { image: "assets/HaNoi.jpg", name: "Hà Nội" } %>
+            <%= render "shared/home_page/location_preview", { image: "assets/HCM.jpg", name: "Hồ Chí Minh" } %>
+            <%= render "shared/home_page/location_preview", { image: "assets/DaLat.jpg", name: "Đà Lạt" } %>
+            <%= render "shared/home_page/location_preview", { image: "assets/HaiPhong.jpg", name: "Hải Phòng" } %>
+            <%= render "shared/home_page/location_preview", { image: "assets/BaoLoc.jpg", name: "Bảo Lộc" } %>
+            <%= render "shared/home_page/location_preview", { image: "assets/ThaiNguyen.jpg", name: "Thái Nguyên" } %>
+            <%= render "shared/home_page/location_preview", { image: "assets/DaNang.jpg", name: "Đà Nẵng" } %>
           </div>
         </div>
       </div>

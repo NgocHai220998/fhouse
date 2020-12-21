@@ -1,9 +1,9 @@
 <article class="post">
   <figure class="post-thumb">
-    <img src="../../assets/l2.jpg" class="radius-image" alt="" />
+    <img style="width: 80px; height: 85px;" src=<%= local_assigns[:image] %> class="radius-image" alt="" />
   </figure>
   <div class="text">
-    <a href="#blog-single">Build your next landing page. </a>
-    <div class="post-info">Sep 09, 2020 - 2 comments</div>
+    <%= link_to local_assigns[:house][:title], house_path(local_assigns[:house]) %>
+    <div class="post-info"><%= local_assigns[:house][:address] %></div>
   </div>
 </article>

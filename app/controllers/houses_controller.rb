@@ -14,6 +14,12 @@ class HousesController < ApplicationController
     @house_photos = @house.house_photos.all
   end
 
+  # GET /houses/city/hanoi
+  # GET /houses/city/hanoi
+  def houses_city
+    @list_house = house_by_city(params[:id])
+  end
+
   # GET /houses/new
   def new
     @house = current_user.house.build
