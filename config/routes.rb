@@ -17,4 +17,18 @@ Rails.application.routes.draw do
 
   resources :house_photos
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  #import data
+  resources :houses do
+    collection { post :import }
+  end
+  resources :house_photos do
+    collection { post :import }
+  end
+  resources :comments do
+    collection { post :import }
+  end
+  resources :cares do
+    collection { post :import }
+  end
 end

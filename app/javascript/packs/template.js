@@ -163,6 +163,7 @@ if (
 	window.location.pathname === "/users/sign_up" ||
 	window.location.pathname === "/users/sign_in" ||
 	window.location.pathname === "/signin" ||
+	window.location.pathname === "/houses" ||
 	window.location.pathname === "/signup"
 ) {
 	$("#root_header").addClass("display_none");

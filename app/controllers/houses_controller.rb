@@ -74,6 +74,12 @@ class HousesController < ApplicationController
     end
   end
 
+  # import data
+  def import
+    House.import(params[:file])
+    redirect_to houses_path, notice: "Thêm dữ liệu cho House thành công"
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

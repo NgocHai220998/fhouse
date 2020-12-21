@@ -1,67 +1,37 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Houses</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Address</th>
-      <th>Image</th>
-      <th>Pice</th>
-      <th>Acreage</th>
-      <th>Kind</th>
-      <th>Bedrooms</th>
-      <th>Bathrooms</th>
-      <th>Gara size</th>
-      <th>Is wc</th>
-      <th>Is wf</th>
-      <th>Is cook</th>
-      <th>Is elevator</th>
-      <th>Is time free</th>
-      <th>Is pet</th>
-      <th>Is aircon</th>
-      <th>Is rent</th>
-      <th>Video url</th>
-      <th>User</th>
-      <th>City</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @houses.each do |house| %>
-      <tr>
-        <td><%= house.title %></td>
-        <td><%= house.description %></td>
-        <td><%= house.address %></td>
-        <td><%= house.image %></td>
-        <td><%= house.pice %></td>
-        <td><%= house.acreage %></td>
-        <td><%= house.kind %></td>
-        <td><%= house.bedrooms %></td>
-        <td><%= house.bathrooms %></td>
-        <td><%= house.gara_size %></td>
-        <td><%= house.is_wc %></td>
-        <td><%= house.is_wf %></td>
-        <td><%= house.is_cook %></td>
-        <td><%= house.is_elevator %></td>
-        <td><%= house.is_time_free %></td>
-        <td><%= house.is_pet %></td>
-        <td><%= house.is_aircon %></td>
-        <td><%= house.is_rent %></td>
-        <td><%= house.video_url %></td>
-        <td><%= house.user_id %></td>
-        <td><%= house.city %></td>
-        <td><%= link_to 'Show', house %></td>
-        <td><%= link_to 'Edit', edit_house_path(house) %></td>
-        <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div style="background-color: #fff; padding: 50px" class="import-container container">
+  <p id="notice"><%= notice %></p>
+  <h1>Import dữ liệu từ excel</h1>
+  <%= link_to root_path do %>
+    <div class="btn btn-primary">
+      Về trang chủ
+    </div>
+  <% end %>
+  <div>
+    <h4>Bảng House</h4>
+    <%= form_tag import_houses_path, multipart: true do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag "Thêm dữ liệu cho bảng House", class: "btn btn-success" %>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New House', new_house_path %>
+  </div>
+  <div>
+    <h4>Photo House</h4>
+    <%= form_tag import_house_photos_path, multipart: true do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag "Thêm dữ liệu cho bảng HousePhoto", class: "btn btn-success" %>
+    <% end %>
+  </div>
+  <div>
+    <h4>Bảng Comment</h4>
+    <%= form_tag import_comments_path, multipart: true do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag "Thêm dữ liệu cho bảng Comment", class: "btn btn-success" %>
+    <% end %>
+  </div>
+  <div>
+    <h4>Bảng Care</h4>
+    <%= form_tag import_cares_path, multipart: true do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag "Them dữ liệu cho bảng care", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>

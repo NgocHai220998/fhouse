@@ -21,6 +21,12 @@ class CaresController < ApplicationController
     end
   end
 
+  # import data
+  def import
+    Care.import(params[:file])
+    redirect_to houses_path, notice: "Thêm dữ liệu quan tâm thành công"
+  end
+
   private
 
   def house_params

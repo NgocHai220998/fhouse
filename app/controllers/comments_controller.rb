@@ -15,6 +15,12 @@ class CommentsController < ApplicationController
     end
   end
 
+  # import data
+  def import
+    Comment.import(params[:file])
+    redirect_to houses_path, notice: "Thêm dữ liệu bình luận thành công"
+  end
+
   def house_params
     params.require(:data).permit(:user_id, :house_id, :star, :content)
   end

@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_12_20_174640) do
     t.integer "user_id"
     t.integer "house_id"
     t.integer "star"
-    t.string "content"
+    t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 2020_12_20_174640) do
   end
 
   create_table "houses", charset: "utf8mb4", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
+    t.text "title"
+    t.text "description"
     t.string "address"
     t.string "image"
     t.string "pice"

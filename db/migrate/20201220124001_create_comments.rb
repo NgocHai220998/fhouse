@@ -4,7 +4,7 @@ class CreateComments < ActiveRecord::Migration[6.1]
       t.integer :user_id
       t.integer :house_id
       t.integer :star
-      t.string :content
+      t.text :content
 
       t.timestamps
     end
