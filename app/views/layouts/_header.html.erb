@@ -37,9 +37,21 @@
                 <% end %>
               </div>
             <% end %>
-            <li class="nav-item @@listing__active">
-              <% if user_signed_in? && ["admin", "host"].include?(current_user.role) %>
-                <a class="nav-link" href="/admin">Quản lý</a>
+            <li>
+              <% if user_signed_in? %>
+                <div class="">
+                  <% if !(current_user.role == "host") && !current_user.request_host  %>
+                    <%= link_to "Active Host", active_host_path, method: :put, class: "btn btn-primary" %>
+                  <% elsif current_user.role == "host" %>
+                    <% if user_signed_in? && ["admin", "host"].include?(current_user.role) %>
+                      <a style="border-bottom: 5px solid #f93;" class="nav-link" href="/admin">Quản lý <span class="fa fa-home"></span></a>
+                    <% end %>
+                  <% else %>
+                    <div class="btn btn-primary">
+                      Enable Host Pending
+                    </div>
+                  <% end %>
+                </div>
               <% end %>
             </li>
           </ul>
@@ -64,28 +76,27 @@
             </div>
           </nav>
         </div>
-        <% if user_signed_in? %>
-          <div class="dropdown ml-3 btn-account">
-            <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= current_user.username %>
-            </button>
-            <div class="dropdown-menu box-drop-account" aria-labelledby="dropdownAccount">
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-              <%= link_to "Profile", users_profile_path, class: "dropdown-item" %>
-              <% if (current_user.role == "user") %>
-                <%= link_to "Active Host", active_host_path, method: :put, class: "dropdown-item" %>
+        <div>
+          <% if user_signed_in? %>
+            <div class="dropdown ml-3 btn-account">
+              <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= current_user.username %>
+              </button>
+              <div class="dropdown-menu box-drop-account" aria-labelledby="dropdownAccount">
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                <%= link_to "Profile", users_profile_path, class: "dropdown-item" %>
+              </div>
+            </div>
+          <% else %>
+            <div class="ml-4">
+              <%= link_to signin_path do %>
+                <div class="btn btn-primary">
+                  Đăng nhập
+                </div>
               <% end %>
             </div>
-          </div>
-        <% else %>
-          <div class="ml-4">
-            <%= link_to signin_path do %>
-              <div class="btn btn-primary">
-                Đăng nhập
-              </div>
-            <% end %>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </nav>
     </div>
   </header>

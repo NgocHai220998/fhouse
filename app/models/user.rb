@@ -9,16 +9,13 @@ class User < ApplicationRecord
   has_many :house
   has_many :comment
   has_many :care
+  has_one :request_host
 
   validates_processing_of :image
   validate :image_size_validation
 
   def role_enum
     ["admin", "host", "user"]
-  end
-
-  def active_host
-    update role: "host"
   end
 
   private
